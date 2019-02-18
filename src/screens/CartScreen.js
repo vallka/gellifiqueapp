@@ -17,7 +17,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <WVScreen ref={child => {this.child = child}} uri='https://www.gellifique.co.uk/my-account' />
+      <WVScreen ref={child => {this.child = child}} uri='https://www.gellifique.co.uk/cart?action=show'/>
     );
   }
 }

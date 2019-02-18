@@ -1,27 +1,22 @@
-import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import * as React from 'react';
+import WVScreen from './WVScreen';
 
-export default class LinksScreen extends React.Component {
+export default class App extends React.Component {
   static navigationOptions = {
-    title: 'Links',
+    title: ' ',
+    headerStyle: {height: 1, backgroundColor: 'transparent',}
   };
 
+  componentDidMount() {
+    this.props.navigation.setParams({title1: 'Updated1', ths: this.child})
+    console.log('didmount Home:'+this.child)
+    console.log('didmount Home:'+this.child.child)
+    console.log(this.child.child.props)
+  }
+  
   render() {
     return (
-      <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <ExpoLinksView />
-      </ScrollView>
+      <WVScreen ref={child => {this.child = child}} uri='https://www.gellifique.co.uk/sitemap' search={true} />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
